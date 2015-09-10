@@ -1,0 +1,14 @@
+<template name="viewAssemblies">
+	<div class="list-group">
+	{{> autoformModals}}
+		{{#each getAssemblies}}
+			<a href="{{pathFor 'editAssembly'}}" class="list-group-item">
+				<span class="glyphicon glyphicon-remove pull-right" name="delete" id="{{_id}}"></span>
+				<span> {{#afModal title="Edit Assembly" class="glyphicon glyphicon-edit pull-right" collection="Assemblies" operation="update" doc=_id formId="editAssemblyForm"}} {{/afModal}} </span>
+				{{name}}
+			</a>
+		{{/each}}
+	</div>
+	<button class="add-assembly">Add Assembly</button>
+	<button class="delete-assembly">Delete Assembly</button>
+</template>

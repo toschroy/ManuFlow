@@ -1,0 +1,14 @@
+<template name="editAssembly">
+	<div><h2>{{name}}</h2><span class="btn-group"><button class="btn pull-right add-step">Add Assembly Step</button></span></div>
+		<div class="list-group">
+			{{#each assemblyStepList}}
+				<a href="{{pathFor 'editAssemblyStep'}}" class="list-group-item" id="{{_id}}">
+					<span class="glyphicon glyphicon-remove pull-right" name="delete" id="{{_id}}"></span>
+					<span class="badge">Skill Required: {{skillRequired}}</span>
+					<span class="badge sub-steps" id="{{_id}}">Walkthrough</span>
+					<h4>{{name}}</h4>
+					<p class="list-group-item-text">{{prerequisiteStepList}}</p>
+				</a>
+			{{/each}}
+		</div>
+</template>

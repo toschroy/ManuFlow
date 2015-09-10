@@ -1,0 +1,33 @@
+<template name="viewRuns">
+	{{#each getRuns}}
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+			<div class="btn-group" role="group">
+				{{#afModal title="Edit Run" class="btn btn-default main-button" collection="Runs" operation="update" doc=_id formId="editRunForm"}}
+					<h3>{{name}}</h3>
+					<p class="list-group-item-text">Assembly: {{assemblyName}}</p>
+					<p class="list-group-item-text">Quantity: {{quantity}}</p>
+					<p class="list-group-item-text">Progress: {{completedSteps}} of {{totalSteps}} steps completed</p>
+				{{/afModal}}
+			</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default secondary-button">
+					{{#if active}}
+						<span class="glyphicon glyphicon-pause pull-right" name="pause" id="{{_id}}"></span>
+						<span class="badge">Active</span>
+					{{else}}
+						<span class="glyphicon glyphicon-remove pull-right" name="delete" id="{{_id}}"></span>
+						{{#if runNotCompleted}}
+							<span class="glyphicon glyphicon-play pull-right" name="activate" id="{{_id}}"></span>
+						{{/if}}
+					{{/if}}
+				</button>
+			</div>
+		</div>
+	{{/each}}
+	{{> autoformModals}}
+	<div class="container">
+		{{#afModal class="btn btn-primary" collection="Runs" operation="method" meteormethod="addNewRun" formId="newRunForm"}}
+			New Run
+		{{/afModal}}
+	</div>
+</template>

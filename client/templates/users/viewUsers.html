@@ -1,0 +1,15 @@
+<template name="viewUsers">
+	{{> autoformModals}}
+	<div class="list-group">
+		{{#each getUsers}}
+			{{#afModal title="Edit User" class="list-group-item" collection="Meteor.users" operation="update" doc=_id omitFields="roles"}}
+				<span class="glyphicon glyphicon-remove pull-right" name="delete" id="{{_id}}"></span>
+				<span class="badge">Skill Level: {{profile.skillLevel}}</span>
+				{{username}}
+				<p class="list-group-item-text">
+					Name: {{profile.firstName}} {{profile.lastName}}
+				</p>
+			{{/afModal}}
+		{{/each}}
+	</div>
+</template>

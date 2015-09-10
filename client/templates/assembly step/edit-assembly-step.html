@@ -1,0 +1,62 @@
+<template name="editAssemblyStep">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+	<script src="dist/jquery.bootstrap-duallistbox.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../src/bootstrap-duallistbox.css">
+
+	<form class="edit-step">
+		<div class="form-group">
+			<label for="assemblyName">Assembly Step Name</label>
+			<input name="assemblyName" type="text" class="form-control" id="assemblyName" value="{{name}}"
+			placeholder="Enter Assembly Name">
+		</div>
+		<div class="form-group">
+			<label for="skillRequired">Skill Required (1-5)</label>
+			<input name="skillRequired" type="number" class="form-control" id="skillRequired" value="{{skillRequired}}">
+		</div>
+		<div class="form-group">
+			<select multiple="multiple" size="8" id="prerequisitesListBox" name="prerequisitesListBox">
+				{{#each availablePrerequisiteList}}
+					<option value="{{_id}}">{{name}}</option>
+				{{/each}}
+				{{#each selectedPrerequisiteList}}
+					<option value="{{prerequisiteStepId}}" selected="true">{{getPrerequisiteName prerequisiteStepId}}</option>
+				{{/each}}
+				{{refreshPrerequisites}}
+			</select>
+			<input id="showTakenPrerequisites" type="checkbox">Show Taken Prerequisites
+		</div>
+		
+		<div class="form-group">
+			<select multiple="multiple" size="8" id ="setupPromptsListBox" name="setupPromptsListBox">
+				{{#each setupPrompts}}
+					<option value="{{_id}}" selected="{{selectedSetupPrompt}}">{{description}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="form-group">
+			<select multiple="multiple" size="8" id="equipmentListBox" name="equipmentListBox">
+				{{#each equipment}}
+					<option value="{{_id}}" selected="{{equipmentIsRequired}}">{{name}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<script>
+			prerequisitesListBox = $('[name=prerequisitesListBox]').bootstrapDualListbox({
+				selectedListLabel: 'Selected Prerequisite Steps',
+				nonSelectedListLabel: 'Availabe Prerequisite Steps'
+			});
+			var setupPromptsListBox = $('[name=setupPromptsListBox]').bootstrapDualListbox({
+				selectedListLabel: 'Selected Setup Prompts',
+				nonSelectedListLabel: 'Availabe Setup Prompts'
+			});
+			var equipmentListBox = $('[name=equipmentListBox]').bootstrapDualListbox({
+				selectedListLabel: 'Required Equipment',
+				nonSelectedListLabel: 'Available Equipment'
+			});
+		</script>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+</template>

@@ -1,0 +1,17 @@
+﻿debug:
+-case: a step has multiple dependent steps. if someone starts a dependent step, should the other steps become unavailable.
+
+improvements:
+-create custom input type for dual list box?
+-try stub method for removing setup prompt in walkthrough editor
+
+
+features:
+-add different roles sewer,assembly,quality control and have the ability
+	to set roles required in assembly step
+-add run step prioritizing
+	-be able to set how long it takes to set up a setup prompt. steps that have 	setup prompts that take a long time to do should be rated higher
+-add the option to allow a user to start on a runstep that has a prerequisite step that
+	is in progress.
+-track time for each run step
+-add warnings collection to assembly step. common problems that sewers have with a step

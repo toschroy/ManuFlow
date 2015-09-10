@@ -1,0 +1,12 @@
+<template name="viewEquipment">
+	<div class="list-group">
+			{{#each equipment}}
+				<a href="{{pathFor 'editEquipment'}}" class="list-group-item">
+					<span class="glyphicon glyphicon-remove pull-right" name="delete" id="{{_id}}"></span>
+					<span class="badge">{{quantity}}</span>
+					{{name}}
+				</a>
+			{{/each}}
+	</div>
+	<button class="add-equipment btn btn-default">Add New Equipment</button>
+</template>

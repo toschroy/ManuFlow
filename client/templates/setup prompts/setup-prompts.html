@@ -1,0 +1,9 @@
+<template name="viewSetupPrompts">
+	{{#each setupPrompts}}
+		<a href="{{pathFor 'editSetupPrompt'}}" class="list-group-item">
+			<span class="glyphicon glyphicon-remove pull-right" name="delete" id="{{_id}}"></span>
+			{{description}}
+		</a>
+	{{/each}}
+	<button class="add-setup-prompt btn btn-default">Add Setup Prompt</button>
+</template>

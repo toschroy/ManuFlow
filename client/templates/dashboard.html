@@ -1,0 +1,8 @@
+<template name="dashboard">
+    <h2>{{currentUsername}}</h2>
+    {{#if activeRunExists}}
+    	<p><a href="{{pathFor 'viewAvailableSteps'}}">Work on active run</a></p>
+    {{else}}
+    	<p>No Active Run</p>
+    {{/if}}
+</template>

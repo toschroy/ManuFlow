@@ -1,0 +1,34 @@
+<template name="viewSubSteps">
+	Setup Prompts
+	<div class="list-group">
+		{{#each getSetupPrompts}}
+			<a href="#" class="list-group-item">
+				<span class="glyphicon glyphicon-remove pull-right" name="delete-prompt" id="{{_id}}"></span>
+				{{#with getSetupPrompt setupPromptId}}
+					{{description}}
+				{{/with}}
+			</a>
+		{{/each}}
+	</div>
+	<p>
+		{{#afModal class="btn btn-primary" collection="StepSetupPrompts" formId="addSetupPromptForm" operation="method" meteormethod="addStepSetupPrompt"}}Add Setup Prompt to Step{{/afModal}}
+
+		{{#afModal class="btn btn-primary" collection="SetupPrompts" formId="addNewSetupPromptForm" operation="insert"}}Add New Setup Prompt{{/afModal}}
+	</p>
+
+	<p>Sub Steps</p>
+	<div class="list-group">
+		{{#each getSubSteps}}
+			<a class="list-group-item" href="{{pathFor 'editSubStep'}}">
+				<span class="glyphicon glyphicon-remove pull-right" name="delete" id="{{_id}}"></span>
+				<span class="badge">{{order}}</span>
+				{{description}}
+			</a>
+		{{/each}}
+	</div>
+	{{> autoformModals}}
+	{{#afModal class="btn btn-primary" collection="SubSteps" formId="addSubStepForm" operation="insert" omitFields="order"}}
+		Add Sub Step
+	{{/afModal}}
+	<a href="{{pathFor 'editAssembly' _id=this.assemblyId}}" class="btn" role="button">Back to Assembly</a>
+</template>

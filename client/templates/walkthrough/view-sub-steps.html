@@ -1,0 +1,33 @@
+<template name="viewRunSubSteps">
+	{{name}}
+	<div class='buttons'>
+		
+		<div style='float: left;'>
+			<button class="btn cancel"><h2>Cancel</h2></button>
+		</div>
+		<div style='float: right;'>
+			<button class="btn next"><h2>Next</h2></button>
+		</div>
+	</div>
+	{{#each getSetupPrompts}}
+		<div class="alert alert-warning">{{description}}</div>
+	{{/each}}
+	{{#each getSubSteps}}
+		<div class="alert alert-info">
+			<p>{{description}}</p>
+			{{#each getImages this}}
+				<p align="center"><img class="walkthrough-image" src="{{this.url}}"></p>
+			{{/each}}
+		</div>
+	{{/each}}
+	<div class='buttons'>
+		<h2>
+		<div style='float: left;'>
+			<button class="btn cancel"><h2>Cancel</h2></button>
+		</div>
+		<div style='float: right;'>
+			<button class="btn next"><h2>Next</h2></button>
+		</div>
+		</h2>
+	</div>
+</template>

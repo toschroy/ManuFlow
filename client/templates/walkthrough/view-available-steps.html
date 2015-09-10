@@ -1,0 +1,15 @@
+<template name="viewAvailableSteps">
+	{{#if runStepsAreAvailable}}
+		<div class="list-group">
+			{{#each availableRunSteps}}
+				<a href="{{pathFor 'viewRunSubSteps'}}" class="list-group-item">
+					{{#with correspondingAssemblyStep this}}
+						<h2>{{name}}</h2>
+					{{/with}}
+				</a>
+			{{/each}}
+		</div>
+	{{else}}
+		No steps are currently available. Please wait...
+	{{/if}}
+</template>

@@ -1,0 +1,8 @@
+<template name="editSubStep">
+	{{#autoForm collection="SubSteps" id="editSubStepForm" type="update" doc=this}}
+		{{> afQuickField name="description"}}
+		{{> afQuickField name="pictures"}}
+		{{> afQuickField name="order"}}
+		<button type="submit" class="btn btn-primary">Submit</button>
+	{{/autoForm}}
+</template>

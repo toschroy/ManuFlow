@@ -1,0 +1,17 @@
+.walkthrough-image {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.buttons {
+	width: 100%;
+	display: inline-block;
+	overflow: auto;
+	white-space: nowrap;
+	margin: 0px auto;
+}
+
+.alert {
+	font-size: large;
+}
+

@@ -1,0 +1,12 @@
+Meteor.subscribe('assemblies');
+Meteor.subscribe('assembly-steps', Session.get('assemblyId'));
+Meteor.subscribe('prerequisite-steps');
+Meteor.subscribe('setup-prompts');
+Meteor.subscribe('step-setup-prompts');
+Meteor.subscribe('equipment');
+Meteor.subscribe('required-equipment');
+Meteor.subscribe('users');
+Meteor.subscribe('images');
+Meteor.subscribe('sub-steps');
+Meteor.subscribe('runs');
+Meteor.subscribe('run-steps');
